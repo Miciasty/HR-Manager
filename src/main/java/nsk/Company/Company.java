@@ -53,7 +53,7 @@ public class Company {
             .append(" Address: " + address + "\n")
             .append(" Phone: " + phone + "\n")
             .append(" Employees: " + employees.size() + "\n")
-            .append("-- -- -- -- -- --\n");
+            .append("-- -- -- -- -- --");
         return sb.toString();
     }
 
