@@ -126,6 +126,18 @@ public class Company {
         }
     }
 
+    public void transferEmployee(Employee employee, Position position) {
+        try {
+            if (employees.contains(employee)) {
+                employee.setPosition( position );
+            } else {
+                throw new IllegalArgumentException("No employee was found.");
+            }
+        } catch (Exception e) {
+            AppInstance.getApplication().systemError(e);
+        }
+    }
+
     // -- -- -- -- // -- -- -- -- // -- -- -- -- //
 
     @Override
