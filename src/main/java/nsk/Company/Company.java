@@ -2,6 +2,7 @@ package src.main.java.nsk.Company;
 
 import src.main.java.nsk.AppInstance.AppInstance;
 import src.main.java.nsk.Employee.Employee;
+import src.main.java.nsk.Employee.Entity;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -62,8 +63,44 @@ public class Company {
         }
     }
 
-    public void hireEmployee(List<Employee> employees) { this.employees = employees; }
-    public void hireEmployee(Employee employee) { this.employees.add(employee); }
+    public void hireEmployee(List<Entity> entities, Position position) {
+        try {
+            for (Entity entity : entities) {
+                if ( !(entity instanceof Employee) ) {
+                    this.employees.add(new Employee(
+                            entity.getName(),
+                            entity.getAge(),
+                            entity.getSex(),
+                            position
+                    ));
+                } else if ( employees.contains( (Employee) entity) ) {
+                    throw new IllegalArgumentException("The employee is already hired.");
+                } else {
+                    throw new IllegalArgumentException("The employee is already hired somewhere else.");
+                }
+            }
+        } catch (Exception e) {
+            AppInstance.getApplication().systemError(e);
+        }
+    }
+    public void hireEmployee(Entity entity, Position position) {
+        try {
+            if ( !(entity instanceof Employee) ) {
+                this.employees.add(new Employee(
+                        entity.getName(),
+                        entity.getAge(),
+                        entity.getSex(),
+                        position
+                ));
+            } else if ( employees.contains((Employee) entity) ) {
+                throw new IllegalArgumentException("Employee is already hired.");
+            } else {
+                throw new IllegalArgumentException("Employee is already hired somewhere else");
+            }
+        } catch (Exception e) {
+            AppInstance.getApplication().systemError(e);
+        }
+    }
 
     public void fireAllEmployees() { this.employees.clear(); }
     public void fireEmployee(Employee employee) {
