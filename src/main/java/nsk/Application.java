@@ -17,7 +17,7 @@ public class Application {
     // -- -- -- -- // -- -- -- -- // -- -- -- -- //
 
     public Application() {
-        AppInstance session = new AppInstance();
+        AppInstance.setApplication(this);
     }
 
     // -- -- -- -- // -- -- -- -- // -- -- -- -- //

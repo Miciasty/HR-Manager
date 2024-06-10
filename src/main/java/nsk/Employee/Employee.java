@@ -33,12 +33,12 @@ public class Employee extends Entity {
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb  .append("-- -- -- -- -- --\n")
+        sb  .append("--\n")
             .append(" Name: ").append(name).append("\n")
             .append(" Age: ").append(age).append("\n")
             .append(" Sex: ").append(sex).append("\n")
             .append(" Position: ").append(position).append("\n")
-            .append("-- -- -- -- -- --\n");
+            .append("--");
         return sb.toString();
     }
 

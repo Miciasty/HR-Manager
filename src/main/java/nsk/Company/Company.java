@@ -131,12 +131,12 @@ public class Company {
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb  .append("-- -- -- -- -- --\n")
+        sb  .append("--\n")
             .append(" Name: " + name + "\n")
             .append(" Address: " + address + "\n")
             .append(" Phone: " + phone + "\n")
             .append(" Employees: " + employees.size() + "\n")
-            .append("-- -- -- -- -- --");
+            .append("--");
         return sb.toString();
     }
 
