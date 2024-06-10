@@ -1,5 +1,6 @@
 package src.main.java.nsk.Company;
 
+import src.main.java.nsk.AppInstance.AppInstance;
 import src.main.java.nsk.Employee.Employee;
 
 import java.util.ArrayList;
@@ -34,14 +35,59 @@ public class Company {
     public String getPhone() { return phone; }
     public void setPhone(String phone) { this.phone = phone; }
 
-    public List<Employee> getEmployees() { return employees; }
-    public Employee getEmployee(int index) { return employees.get(index); }
+    // -- -- -- -- // -- -- -- -- // -- -- -- -- //
+
+    public List<Employee> getEmployees() {
+        try {
+            if (!employees.isEmpty()) {
+                return employees;
+            } else {
+                throw new IllegalArgumentException("No employee were found.");
+            }
+        } catch (Exception e) {
+            AppInstance.getApplication().systemError(e);
+            return null;
+        }
+    }
+    public Employee getEmployee(int index) {
+        try {
+            if (employees.get(index) != null) {
+                return employees.get(index);
+            } else {
+                throw new IllegalArgumentException("No employee were found.");
+            }
+        } catch (Exception e) {
+            AppInstance.getApplication().systemError(e);
+            return null;
+        }
+    }
 
     public void hireEmployee(List<Employee> employees) { this.employees = employees; }
     public void hireEmployee(Employee employee) { this.employees.add(employee); }
 
     public void fireAllEmployees() { this.employees.clear(); }
-    public void fireEmployee(Employee employee) { this.employees.remove(employee); }
+    public void fireEmployee(Employee employee) {
+        try {
+            if (!employees.contains(employee)) {
+                this.employees.remove(employee);
+            } else {
+                throw new IllegalArgumentException("No employee was found.");
+            }
+        } catch (Exception e) {
+            AppInstance.getApplication().systemError(e);
+        }
+    }
+    public void fireEmployee(int index) {
+        try {
+            if (employees.get(index) != null) {
+                this.employees.remove(index);
+            } else {
+                throw new IllegalArgumentException("No employee was found.");
+            }
+        } catch (Exception e) {
+            AppInstance.getApplication().systemError(e);
+        }
+    }
 
     // -- -- -- -- // -- -- -- -- // -- -- -- -- //
 

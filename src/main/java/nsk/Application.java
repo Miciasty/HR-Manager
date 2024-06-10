@@ -103,7 +103,7 @@ public class Application {
     }
     public Entity getEntity(int id) {
         try {
-            if (entities.contains(id)) {
+            if (entities.get(id) != null) {
                 return entities.get(id);
             } else {
                 throw new IllegalArgumentException("Entity not found");

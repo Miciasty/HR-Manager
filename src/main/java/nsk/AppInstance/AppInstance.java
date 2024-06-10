@@ -4,10 +4,10 @@ import src.main.java.nsk.Application;
 
 public class AppInstance {
 
-    private Application application;
+    private static Application application;
 
-    public void setApplication(Application application) { this.application = application;  }
+    public static void setApplication(Application app) { application = app;  }
 
-    public Application getApplication() { return application; }
+    public static Application getApplication() { return application; }
 
 }
