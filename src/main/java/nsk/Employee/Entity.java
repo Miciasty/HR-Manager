@@ -38,11 +38,11 @@ public class Entity {
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb  .append("-- -- -- -- -- --")
+        sb  .append("-- -- -- -- -- --\n")
             .append(" Name: ").append(name).append("\n")
             .append(" Age: ").append(age).append("\n")
             .append(" Sex: ").append(sex).append("\n")
-            .append("-- -- -- -- -- --");
+            .append("-- -- -- -- -- --\n");
         return sb.toString();
     }
 
